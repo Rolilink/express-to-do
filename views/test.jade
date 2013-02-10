@@ -1,0 +1,20 @@
+doctype 5
+html
+	head
+		link(rel="stylesheet", href="/stylesheets/bootstrap.css");
+		link(rel="stylesheet", href="/stylesheets/datepicker.css");
+	body
+		form
+			fieldset
+				legend To-Do 
+				label Content
+				input(type='text',id='content-input',name='content')
+				label Priority
+				input(type='text',id='priority-input',name='priority')
+				label Due Date
+				input(type='text',id='date-input',name='duedate');
+				button(type='submit',class='btn', id='submit-input') Submit
+	script(src='/scripts/jquery.js');
+	script(src='/scripts/bootstrap.js');
+	script(src='/scripts/bootstrap-datepicker.js');
+	script(src='/scripts/main.js')

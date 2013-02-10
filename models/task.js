@@ -1,14 +1,14 @@
 module.exports = function(mongoose){
 	function validateDate(value){
-		return value > new Date();
+		return (value > new Date()) && value;
 	}
 
 	function validatePriority(priority){
-		return(priority > 0 && priority < 4);
+		return(priority > 0 && priority < 4 && priority);
 	}
 
 	function validateContent(content){
-		return( content.length > 0 && content.length < 140);
+		return( content.length > 0 && content.length < 140 && content) ;
 	}
 
 	var schema = mongoose.Schema({

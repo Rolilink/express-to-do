@@ -1,6 +1,22 @@
 module.exports = function(Task){
+
+	function validateTaskJson(taskjson){
+		var rjson = {};
+		Task.schema.eachPath(function(pathname,type){
+			if(taskjson[pathname]){
+				if(type===Date){
+					rjson[pathname] = new Date(taskjson[pathname]);
+				}else{
+					rjson[pathname] = taskjson[pathname];
+				}
+			}
+		});
+		return rjson;
+	}
+	
 	return {
 		createTask:function(values,successcallback,errorcallback){
+			values = validateTaskJson(values);
 			var task = new Task(values);
 			task.save(function(error){
 				if(error){
@@ -11,7 +27,7 @@ module.exports = function(Task){
 			});
 		}
 		,deleteTask:function(id,successcallback,errorcallback){
-			Task.findOneByIdAndRemove(id,function(err,task){
+			Task.findByIdAndRemove(id,function(err,task){
 				if(err){
 					errorcallback(error);
 					return;
@@ -20,9 +36,10 @@ module.exports = function(Task){
 			});
 		}
 		,updateTask:function(id,values,successcallback,errorcallback){
-			Task.findOneByIdAndUpdate(id,values,function(err,task){
+			values = validateTaskJson(values);
+			Task.findByIdAndUpdate(id,values,function(err,task){
 				if(err){
-					errorcallback(error);
+					errorcallback(err);
 					return;
 				}
 				successcallback(task);
@@ -32,11 +49,16 @@ module.exports = function(Task){
 		// 		id: task id for searching
 		,getTask:function(id,successcallback,errorcallback){
 			Task.findById(id,function(err,task){
-				if(err){
+				if(err ){
 					errorcallback(err);
 					return;
 				}
-				successcallback(task);
+				if(task){
+					successcallback(task);
+				}else{
+					errorcallback();
+				}
+				
 			});
 		}
 	}

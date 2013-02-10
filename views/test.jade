@@ -7,13 +7,17 @@ html
 		form
 			fieldset
 				legend To-Do 
+				label Id
+				input(type='text',id='input-id',name='id')
 				label Content
 				input(type='text',id='content-input',name='content')
 				label Priority
 				input(type='text',id='priority-input',name='priority')
 				label Due Date
 				input(type='text',id='date-input',name='duedate');
-				button(type='submit',class='btn', id='submit-input') Submit
+				button(type='submit',class='btn', id='submit-input') Create
+				button(type='submit',class='btn btn-warning', id='submit-update') Update
+				button(type='submit',class='btn btn-danger', id='submit-delete') Delete
 	script(src='/scripts/jquery.js');
 	script(src='/scripts/bootstrap.js');
 	script(src='/scripts/bootstrap-datepicker.js');

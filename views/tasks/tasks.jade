@@ -1,5 +1,12 @@
-extends tasks
+extends ../layouts/tasksLayout
+include ../mixins/tasks/taskmixins
 
+// main block: list all tasks
+block main
+	each(task in tasks)
+		+mixinTask(task)
+
+// menu block: create and update form
 block menu
 	form.sidemenu
 		div.control-group

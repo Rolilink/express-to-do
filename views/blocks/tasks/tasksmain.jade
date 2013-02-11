@@ -1,1 +1,4 @@
-tasksmain.jade
+extends tasks
+block main
+	each(task in tasks)
+		+mixinTask(task)

@@ -1,0 +1,4 @@
+mixin mixinScripts(scriptArray,env)
+	each(scriptName in scriptArray)
+		script(src = assetsHelper.buildScriptUrl(scriptName,settings.env))
+			

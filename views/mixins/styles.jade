@@ -1,0 +1,3 @@
+mixin mixinScripts(styleArray)
+	each(styleName in styleArray)
+		link( rel='stylesheet/css', href = assetsHelper.buildStyleUrl(styleName,settings.env))

@@ -1,0 +1,24 @@
+extends tasks
+
+block menu
+	form.sidemenu
+		div.control-group
+			label(for='content-input',class='control-label') Content
+			div.controls
+				textarea#content-input
+		div.control-group
+			label(for='date-input') Due Date
+			div.controls
+				input(type='text', id='date-input')
+		div.control-group
+			label Tag(for='tag-input')
+			div.controls
+				input(type='text', id='tag-input', placeholder='Personal')
+		div.control-group
+			label(for='priority-input') Priority
+			div.controls
+				select#priority-input
+					option 1
+					option 2
+					option 3
+			button.btn#add-btn Add	

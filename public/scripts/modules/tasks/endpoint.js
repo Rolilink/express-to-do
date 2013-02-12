@@ -28,7 +28,7 @@ define([
 			});
 		}
 
-		function saveTask(data){
+		function updateTask(data){
 			$.ajax({
 				contentType: contentType
 				,data: JSON.stringify(data.task)
@@ -60,6 +60,8 @@ define([
 		function initialize(){
 			$(document).ready(function(){
 				Mediator.subscribe('create-task',createTask,this);
+				Mediator.subscribe('delete-task',deleteTask,this);
+				Mediator.subscirbe('update-task',updateTask,this);
 			});
 		}
 

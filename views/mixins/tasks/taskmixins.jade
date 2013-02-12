@@ -5,7 +5,7 @@ mixin mixinTask(task)
 			p.span4.item-date= datesHelper.dateToString(task.duedate)
 			p.span4.item-priority= task.priority
 		div.row
-			p.span7.offset1.content= task.content
+			p.span7.offset1.item-content= task.content
 			button.span2.offset1.closebtn.close &times;
 		div.row.controls
 			button.btn.btn-success.span4.offset2.itemupdate Update

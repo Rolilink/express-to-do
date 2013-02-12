@@ -12,15 +12,14 @@ define([
 		}
 
 		function createTask(data){
-			console.log(data);
 			$.ajax({
 				contentType: contentType
 				,data: JSON.stringify(data)
 				,dataType: dataType
 				,type:'POST'
 				,url: url
-				,success: function(data){
-					console.log(data);
+				,success: function(res){
+					Mediator.publish('add-task',res);
 				}
 				,error: function(error){
 					console.log(error);

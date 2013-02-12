@@ -29,7 +29,7 @@ module.exports = function(app,mongoose){
 				req.body
 				,function(task){
 					res.status(200);
-					res.send({id: task.id});
+					res.send(task);
 					res.end();
 				},function(error){
 					console.log(error);

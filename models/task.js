@@ -1,6 +1,6 @@
 module.exports = function(mongoose){
 	function validateDate(value){
-		return (value > new Date()) && value;
+		return (value >= new Date()) && value;
 	}
 
 	function validatePriority(priority){

@@ -3,12 +3,27 @@ require.config({
     jquery: '../../libs/jquery',
     mediator: '../../libs/mediator',
     datepicker: '../../libs/datepicker',
-    bootstrap: '../../libs/bootstrap'
+    bootstrap: '../../libs/bootstrap',
+    app: 'taskapp',
+    formModule: 'form',
+    endpoint: 'endpoint'
+  },
+  shim:{
+  	datepicker:{
+  		deps: ['bootstrap']
+  	},
+  	bootstrap:{
+  		deps: ['jquery']
+  	}
   }
 
 });
 
 require([
-], function(){
- 	
+	'app',
+	'jquery'
+], function(app,$){
+	$(document).ready(function(){
+		app.initialize();
+	});
 });

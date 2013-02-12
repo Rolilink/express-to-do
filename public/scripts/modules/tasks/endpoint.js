@@ -61,7 +61,7 @@ define([
 			$(document).ready(function(){
 				Mediator.subscribe('create-task',createTask,this);
 				Mediator.subscribe('delete-task',deleteTask,this);
-				Mediator.subscirbe('update-task',updateTask,this);
+				Mediator.subscribe('update-task',updateTask,this);
 			});
 		}
 

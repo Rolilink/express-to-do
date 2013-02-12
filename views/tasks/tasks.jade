@@ -3,7 +3,9 @@ include ../mixins/tasks/taskmixins
 
 // main block: list all tasks
 block main
-	
+	ul#tasklist
+		each task in locals.tasks
+			+mixinTask(task)
 
 // menu block: create and update form
 block menu

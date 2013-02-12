@@ -18,9 +18,9 @@ module.exports = function(Task){
 		createTask:function(values,successcallback,errorcallback){
 			values = validateTaskJson(values);
 			var task = new Task(values);
-			task.save(function(error){
-				if(error){
-					errorcallback(error);
+			task.save(function(err){
+				if(err){
+					errorcallback(err);
 					return;
 				}
 				successcallback(task);
@@ -45,8 +45,6 @@ module.exports = function(Task){
 				successcallback(task);
 			});
 		}
-		// options:
-		// 		id: task id for searching
 		,getTask:function(id,successcallback,errorcallback){
 			Task.findById(id,function(err,task){
 				if(err ){
@@ -56,9 +54,22 @@ module.exports = function(Task){
 				if(task){
 					successcallback(task);
 				}else{
-					errorcallback();
+					errorcallback('not found');
 				}
 				
+			});
+		}
+		,getAllTasks:function(successcallback,errorcallback){
+			Task.find({},function(err,tasks){
+				if(err ){
+					errorcallback(err);
+					return;
+				}
+				if(tasks){
+					successcallback(tasks);
+				}else{
+					successcallback(tasks);
+				}
 			});
 		}
 	}

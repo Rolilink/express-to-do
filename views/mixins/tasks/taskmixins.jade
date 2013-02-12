@@ -1,1 +1,13 @@
 mixin mixinTask(task)
+	li.item.well(data-duedate= task.duedate,data-content= task.content, data-tag= task.tag, data-id= task.id, data-completed= task.completed.toString())
+		div.row
+			p.span3.offset1.item-tag= task.tag
+			p.span4.item-date= datesHelper.dateToString(task.duedate)
+			p.span4.item-priority= task.priority
+		div.row
+			p.span7.offset1.content= task.content
+			button.span2.offset1.closebtn.close &times;
+		div.row.controls
+			button.btn.btn-success.span4.offset2.itemupdate Update
+			button.btn.btn-danger.span4.itemdelete Delete
+

@@ -1,12 +1,21 @@
 module.exports = function(app,mongoose){
 	var Task = (require('../models/task'))(mongoose);
 	var taskController = (require('../controllers/taskController'))(Task);
+
 	app.get('/tasks',function(req,res){
-		res.render('tasks/tasks',{
-			locals:{
-				stylesheets: ['bootstrap','datepicker','style']
+		taskController.getAllTasks(
+			function(tasks){
+				res.render('tasks/tasks',{
+					locals:{
+						stylesheets: ['bootstrap','datepicker','style']
+						,tasks: tasks
+					}
+				});
 			}
-		});
+			,function(error){
+				console.log(error);
+			}
+		);
 	});
 
 	app.get('/test',function(req,res){

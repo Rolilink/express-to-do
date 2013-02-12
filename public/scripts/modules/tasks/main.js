@@ -6,7 +6,8 @@ require.config({
     bootstrap: '../../libs/bootstrap',
     app: 'taskapp',
     formModule: 'form',
-    endpoint: 'endpoint'
+    endpoint: 'endpoint',
+    list: 'list'
   },
   shim:{
   	datepicker:{

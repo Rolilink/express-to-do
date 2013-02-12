@@ -44,9 +44,10 @@ define([
 			});
 		}
 
-		function deleteTask(id){
+		function deleteTask(data){
 			$.ajax({
-				type:'DEL'
+				contentType: "text/plain"
+				,type:'DELETE'
 				,url: returnUrl(url,data.id)
 				,success: function(data){
 					console.log(data);

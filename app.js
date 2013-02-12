@@ -20,7 +20,8 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
-  app.locals.assetsHelper = require('./helpers/helpers');
+  app.locals.assetsHelper = require('./helpers/assets');
+  app.locals.datesHelper = require('./helpers/dates');
 });
 
 app.configure('development', function(){

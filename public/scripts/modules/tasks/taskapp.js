@@ -1,6 +1,7 @@
 define([
 	'form'
 	,'endpoint'
+	,'list'
 	],
 	function(){
 		var modules = Array.prototype.slice.call(arguments);

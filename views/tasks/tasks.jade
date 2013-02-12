@@ -1,31 +1,30 @@
-extends ../layouts/tasksLayout
+extend ../layouts/taskslayout
 include ../mixins/tasks/taskmixins
 
 // main block: list all tasks
 block main
-	each(task in tasks)
-		+mixinTask(task)
+	div.asdasd
 
 // menu block: create and update form
 block menu
-	form.sidemenu
+	form#sidemenu.well
 		div.control-group
-			label(for='content-input',class='control-label') Content
+			label(for='content-input') Content
 			div.controls
-				textarea#content-input
+				textarea#content-input.span11
 		div.control-group
 			label(for='date-input') Due Date
 			div.controls
-				input(type='text', id='date-input')
+				input(type='text', id='date-input').span11
 		div.control-group
-			label Tag(for='tag-input')
+			label(for='tag-input') Tag
 			div.controls
-				input(type='text', id='tag-input', placeholder='Personal')
+				input(type='text', id='tag-input', placeholder='Personal').span11
 		div.control-group
 			label(for='priority-input') Priority
 			div.controls
-				select#priority-input
+				select#priority-input.span11
 					option 1
 					option 2
 					option 3
-			button.btn#add-btn Add	
+		button.btn.btn-primary#add-btn Add	

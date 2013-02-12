@@ -1,4 +1,4 @@
-var assetsHelper = function(){
+module.exports = function(){
 	function buildStyleUrl(name,env){
 		if(env==='development' || env==='test'){
 			return '/stylesheets/' + name +'.css';

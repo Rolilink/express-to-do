@@ -1,0 +1,14 @@
+include ../mixins/styles
+
+doctype 5
+html
+	head
+		+mixinStyles(locals.stylesheets)
+	body
+		div.container
+			div.row-fluid
+				div.span3#sidebar
+					block menu
+				div.span9#container
+					block main
+	script(data-main='scripts/modules/tasks/main',type="text/javascript", src="scripts/libs/require.js")

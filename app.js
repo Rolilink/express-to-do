@@ -8,7 +8,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , mongoose = require('mongoose')
-  , credentials = require(./credentials)
+  , credentials = require('./credentials')
 
 var app = express();
 app.configure(function(){

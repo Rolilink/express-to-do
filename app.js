@@ -25,7 +25,7 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
-  app.set('db-uri','mongodb://localhost/todo-dev');
+  app.set('db-uri','mongodb://admin:123456@ds043967.mongolab.com:43967/todo');
   app.use(express.errorHandler());
 });
 

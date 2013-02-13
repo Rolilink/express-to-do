@@ -7,7 +7,8 @@ var express = require('express')
   , taskroutes = require('./routes/taskRoutes')
   , http = require('http')
   , path = require('path')
-  , mongoose = require('mongoose');
+  , mongoose = require('mongoose')
+  , credentials = require(./credentials)
 
 var app = express();
 app.configure(function(){
@@ -25,7 +26,7 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
-  app.set('db-uri','mongodb://admin:123456@ds043967.mongolab.com:43967/todo');
+  app.set('db-uri','mongodb://' + credentials['dbuser'] +':' + credentials['dbpass'] +'@ds043967.mongolab.com:43967/todo');
   app.use(express.errorHandler());
 });
 

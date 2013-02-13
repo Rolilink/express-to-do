@@ -32,7 +32,7 @@ define([
 				contentType: contentType
 				,data: JSON.stringify(data.task)
 				,dataType: dataType
-				,type:'POST'
+				,type:'PUT'
 				,url: returnUrl(url,data.id)
 				,success: function(data){
 					console.log(data);

@@ -37,6 +37,7 @@ module.exports = function(Task){
 		}
 		,updateTask:function(id,values,successcallback,errorcallback){
 			values = validateTaskJson(values);
+			console.log(values);
 			Task.findByIdAndUpdate(id,values,function(err,task){
 				if(err){
 					errorcallback(err);
